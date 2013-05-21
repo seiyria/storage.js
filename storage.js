@@ -1,5 +1,4 @@
 
-
 var Data = {
 
 	mode: "html5",
@@ -13,10 +12,11 @@ var Data = {
 	},
 	
 	hasVar: function(check) {
-		return Data.mode == "html5" ? (typeof Data._html5VarGetRaw(check)	!= 'undefined' &&
-											  Data._html5VarGetRaw(check) 	!= 'undefined' &&
-											  Data._html5VarGetRaw(check) 	!= null) : 
-											  Data._cookieVarGet(check)     !== null;
+		return Data.mode == "html5" ? 
+		(typeof Data._html5VarGetRaw(check)	!= 'undefined' &&
+		  Data._html5VarGetRaw(check) 	!= 'undefined' &&
+		  Data._html5VarGetRaw(check) 	!= null) : 
+		  Data._cookieVarGet(check)     !== null;
 	},
 
 	getVar: function(check) {
@@ -28,7 +28,8 @@ var Data = {
 	},
 
 	_html5VarGet: function(check) {
-		if(!Data.isHtml5()) throw new Error("You don't have an HTML5 compliant browser, don't try to fool me!");
+		if(!Data.isHtml5()) 
+			throw new Error("You don't have an HTML5 compliant browser, don't try to fool me!");
 		try { 
 			return $.parseJSON(localStorage[check]);
 		} catch(e) {
@@ -54,7 +55,8 @@ var Data = {
 	},
 
 	_html5VarSet: function(check, val) {
-		if(!Data.isHtml5()) throw new Error("You don't have an HTML5 compliant browser, don't try to fool me!");
+		if(!Data.isHtml5()) 
+			throw new Error("You don't have an HTML5 compliant browser, don't try to fool me!");
 		localStorage[check] = val;
 	},
 
