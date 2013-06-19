@@ -1,4 +1,3 @@
-
 var Data = {
 
 	mode: "html5",
@@ -42,6 +41,7 @@ var Data = {
 	},
 
 	_html5VarGetRaw: function(check) {
+		if(localStorage == null) throw new Error("localStorage is null in "+Data.mode+" for "+navigator.userAgent);
 		return localStorage[check];
 	},
 
