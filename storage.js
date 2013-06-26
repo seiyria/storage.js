@@ -58,7 +58,11 @@ var Data = {
 	_html5VarSet: function(check, val) {
 		if(!Data.isHtml5()) 
 			throw new Error("You don't have an HTML5 compliant browser, don't try to fool me!");
-		localStorage[check] = val;
+		try {
+			localStorage[check] = val;
+		} catch (e) {
+			throw new Error("The user does not have enough storage space to put " + check + " (" + val + ") in localStorage.");
+		}
 	},
 
 	_cookieVarSet: function(check, val) {
